@@ -1,0 +1,225 @@
+wochentage=["samstag" , "sonntag" , "montag" , "dienstag" , "mittwoch" , "donnerstag" , "freitag"]
+samstags_schüler=[["retal"] ,["yousef", "alia" , "yousef" , "nour"] ,["dima"] , ["roa" , "hams" , "marim" , "yousef" , "malek"] , ["alia" , "karma"] , ["lara"], ["mohamed"] ,["selim" , "base" , "goumana" , "iysel"] , ["omar" , "mohamed" , "maram" , "eyad" , "adam"]]
+sonntags_schüler=[["karma"],["rayan"] ,["marim"] , ["hamza" , "ziad"], ["yamen"] ,["tia"], ["karla"] , ["sherry" , "hania"]]
+monntags_schüler=[["roqia"] ,["yasin"] , ["younis"], ["abdallah"], ["tayem"],["abdelrahman" , "rodi"] , ["goumana" , "mohamed" , "ahmed" , "aysel" , "eyad" , "saged" , "marwan"] ,["eman"]]
+dienstags_schüler=[["mayar" , "logi"] ,["batoul"] ,["jouria" , "marwan"] , ["marwan" , "gidaa" , "mohamed" , "rodina"] , ["rodina" , "esraa" , "yousef"], ["omar" , "habiba" , "malak" , "abdelrahman"],["jou" , "mohamed" , "yousef" , "retal" , "hosam"] , ["rayan"]]
+mitwoch_schüler=[["marim" , "jesika"] ,["joudy" , "moaz" , "aya" , "omar"] ,["ziad"] , ["marim"] , ["nour"], ["toqa" , "mohamed" , "rodina" , "yousef"],["mahmoud"] , ["sama"] ,["samir"]]
+donnerstags_schüler=[["rovan"] ,["mazen"] ,["karma"] , ["mazen" , "ziad" , "adam" , "abdelrahman"] , ["karim"], ["mostafa" , "saged" , "adam" , "jana" , "khadiga" , "joudy"],["tasnim" , "moaz" , "hamza" , "nancy" , "salma" , "jasmin" , "joumana"]]
+freitags_schüler=[["loyla"] , ["habiba" , "omar" , "omar" , "retag" , "layan"] ,["karma"] , ["nour"]]
+
+bezahlt=[]
+unbezahlt=[]
+stunden_pro_monat=[]
+frei=[]
+
+teinahme_sam=[500 , 600 , 500 , 750 , 500 , 500 , 400 , 600 , 750] 
+teinahme_sonn=[500 , 1000 , 400 , 500 ,500 , 400 , 500 , 500 ] 
+teinahme_monn=[500 , 450 , 450 , 400 ,400 , 500 , 1050 , 600 ]
+teinahme_dien=[500 , 400 , 500 , 800 ,450 , 600 , 750 , 0 ]
+teinahme_mitt=[500 , 800 , 500 , 400 ,400 , 600 , 0 , 400 , 0 ]
+teinahme_donn=[400 , 500 , 550 , 600 ,400 , 900 , 1050 ]
+teinahme_frei=[400 , 750 , 400 , 800]
+teilnamen=teinahme_sam + teinahme_sonn + teinahme_monn + teinahme_dien + teinahme_mitt + teinahme_donn + teinahme_frei 
+
+print(f"willkommen herr wael")
+for  schüler in wochentage :
+  tag=input(f"welcher tag ist heute ?\n")
+  if tag not in (wochentage) :
+    print(f"bitt, das ist falsch , schreiben Sie richtigen tag !\n")
+    tag=input(f"welcher tag ist heute ?\n")
+  elif tag in (wochentage) :
+     if tag == "samstag" :
+       print(samstags_schüler)
+       print("bitte , schreiben Sie 1")
+       zeit=int(input("wie spät ist es ?\n"))
+       x = zeit- 1
+       for  x in range(9):
+         print(f"{samstags_schüler [x]} _ {teinahme_sam[x]}")
+         stunde=input(f"nehmen sie die stunde ?\n")
+         if stunde == "ja" :
+            stunden_pro_monat.append(1)
+         elif stunde == "nein" :
+            frei.append(1)
+         else :
+            print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+         anzahl=input(f"ist das vierte stunde ?\n")
+         if anzahl == "ja" :
+            alle= input(f"haben sie bezahlt ?\n")
+            if alle == "ja" :
+               bezahlt.append(teinahme_sam[x])
+            elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_sam[x] - ankommen )
+         elif anzahl == "nein" :
+            unbezahlt.append(teinahme_sam[x])
+     elif tag == "sonntag" :
+         print(sonntags_schüler)
+         print("bitte , schreiben Sie 1")
+         zeit=int(input("wie spät ist es ?\n"))
+         x = zeit- 1
+         for  x in range(8):
+           print(f"{sonntags_schüler [x]} _ {teinahme_sonn[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+            stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+            frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+             if alle == "ja" :
+               bezahlt.append(teinahme_sonn[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_sonn[x] - ankommen ) 
+           elif anzahl == "nein" :
+            unbezahlt.append(teinahme_sonn[x])        
+     elif tag == "montag" :
+         print(monntags_schüler)
+         print("bitte , schreiben Sie 1")
+         zeit=int(input("wie spät ist es ?\n"))
+         x = zeit- 1
+         for  x in range(8):
+           print(f"{monntags_schüler [x]} _ {teinahme_monn[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+             stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+             frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+             if alle == "ja" :
+               bezahlt.append(teinahme_monn[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_monn[x] - ankommen )   
+
+           elif anzahl == "nein" :
+              unbezahlt.append(teinahme_monn[x])
+     elif tag == "dienstag" :
+         print(dienstags_schüler)
+         zeit=int(input("wie spät ist es ?\n"))
+         print("bitte , schreiben Sie 1")
+         x = zeit- 1
+         for  x in range(8):
+           print(f"{dienstags_schüler [x]} _ {teinahme_dien[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+             stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+             frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+             if alle == "ja" :
+               bezahlt.append(teinahme_dien[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_dien[x] - ankommen )   
+
+           elif anzahl == "nein" :
+              unbezahlt.append(teinahme_dien[x])
+     elif tag == "mittwoch" :
+         print(mitwoch_schüler)
+         print("bitte , schreiben Sie 1")
+         zeit=int(input("wie spät ist es ?\n"))
+         x = zeit- 1
+         for  x in range(9):
+           print(f"{mitwoch_schüler [x]} _ {teinahme_mitt[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+            stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+            frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+           
+             if alle == "ja" :
+               bezahlt.append(teinahme_mitt[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_mitt[x] - ankommen )   
+
+           elif anzahl == "nein" :
+              unbezahlt.append(teinahme_mitt[x])
+     elif tag == "donnerstag" :
+         print(donnerstags_schüler)
+         print("bitte , schreiben Sie 1")
+         zeit=int(input("wie spät ist es ?\n"))
+         x = zeit- 1
+         for  x in range(7):
+           print(f"{donnerstags_schüler [x]} _ {teinahme_donn[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+              stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+              frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+             if alle == "ja" :
+               bezahlt.append(teinahme_donn[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_donn[x] - ankommen )   
+
+           elif anzahl == "nein" :
+              unbezahlt.append(teinahme_donn[x])
+     elif tag == "freitag" :
+         print(freitags_schüler)
+         print("bitte , schreiben Sie 1")
+         zeit=int(input("wie spät ist es ?\n"))
+         x = zeit- 1
+         for  x in range(4):
+           print(f"{freitags_schüler [x]} _ {teinahme_frei[x]}")
+           stunde=input(f"nehmen sie die stunde ?\n")
+           if stunde == "ja" :
+            stunden_pro_monat.append(1)
+           elif stunde == "nein" :
+            frei.append(1)
+           else :
+              print(input(f"das ist falsch , nehmen sie die stunde ?\n "))
+           anzahl=input(f"ist das vierte stunde ?\n")
+           if anzahl == "ja" :
+             alle= input(f"haben sie bezahlt ?\n")
+             if alle == "ja" :
+               bezahlt.append(teinahme_frei[x])
+             elif alle == "nein" :
+                ankommen= int(input ("was hast du die gelder erhalten ?\n"))
+                bezahlt.append(ankommen)
+                unbezahlt.append(teinahme_frei[x] - ankommen ) 
+
+
+           elif anzahl == "nein" :
+              unbezahlt.append(teinahme_frei[x])        
+     else:
+        print(f"bitt, das ist falsch , schreiben Sie richtigen tag !\n")
+        tag=input(f"welcher tag ist heute ?\n")
+     print(f"bezahlt ist : ")
+     print(sum(bezahlt))
+     print(f"unbezahlt ist : ")
+     print (unbezahlt)
+     print("jede stunde ist :")
+     print (sum(stunden_pro_monat))
+     print(f"frei ist : ")
+     print (sum(frei))
+
+        
